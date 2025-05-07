@@ -4,12 +4,14 @@
 #include <stdexcept>
 #include <string>
 
+class Form;
+
 class Bureaucrat {
 	private:
 		const std::string name;
 		int grade;
 	public:
-		Bureaucrat(int grade);
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& other);
@@ -18,6 +20,7 @@ class Bureaucrat {
 		const std::string& getName() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form& other);
 };
 
 class GradeTooHighException : public std::exception {
