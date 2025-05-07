@@ -56,9 +56,6 @@ void Form::beSigned(const Bureaucrat& other) {
 	}
 	else
 		throw GradeTooLowException();
-
-		// std::cout << other.getName() << " couldn't sign the " << name \
-		// << " because their level was too low" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Form& form)
