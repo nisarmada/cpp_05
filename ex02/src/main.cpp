@@ -67,7 +67,6 @@ int main() {
         std::cout << "\nTesting robotomy multiple times:" << std::endl;
         for (int i = 0; i < 5; i++) {
             manager.executeForm(robotForm);
-			 std::this_thread::sleep_for(std::chrono::seconds(1));
         }
         
         printSeparator();
