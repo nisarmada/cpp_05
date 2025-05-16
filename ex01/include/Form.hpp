@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Bureaucrat.hpp"
+#include <stdbool.h>
 
 class Form {
 	private:
@@ -11,16 +13,15 @@ class Form {
 		Form();
 		Form(std::string name, const int gradeSign, const int gradeExecute);
 		~Form();
-
 		Form(const Form& other);
 		Form& operator=(const Form& other);
-		bool getIsSigned() const;
+		const std::string& getName() const;
 		int getGradeSign() const;
 		int getGradeExecute() const;
-		const std::string& getName() const;
-
+		// bool getBool() const;
 		void beSigned(const Bureaucrat& other);
-		
+		bool getIsSigned() const;
+
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const noexcept override;
@@ -33,4 +34,3 @@ class Form {
 };
 
 std::ostream& operator<<(std::ostream& stream, const Form& form);
-
