@@ -6,16 +6,15 @@ int main() {
         Bureaucrat john("John", 75);
         std::cout << john << std::endl;
 
-        std::cout << "Incrementing grade..." << std::endl;
+        std::cout << "Incrementing" << std::endl;
         john.incrementGrade();
         std::cout << john << std::endl;
 
-        std::cout << "Decrementing grade twice..." << std::endl;
+		std::cout << "decrementing" << std::endl;
         john.decrementGrade();
         john.decrementGrade();
         std::cout << john << std::endl;
-
-        std::cout << "\nTrying to create bureaucrat with grade 0 (too high)..." << std::endl;
+		std::cout << "---invalid high---" << std::endl;
         Bureaucrat boss("Boss", 0);  // Should throw GradeTooHighException
 
     } catch (const std::exception& e) {
@@ -23,7 +22,7 @@ int main() {
     }
 
     try {
-        std::cout << "\nTrying to create bureaucrat with grade 151 (too low)..." << std::endl;
+        std::cout << "--invalid low---" << std::endl;
         Bureaucrat intern("Intern", 151);  // Should throw GradeTooLowException
     } catch (const std::exception& e) {
         std::cerr << "Caught exception: " << e.what() << std::endl;
