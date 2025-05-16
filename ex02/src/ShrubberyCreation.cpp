@@ -2,7 +2,19 @@
 
 ShrubberyCreation::ShrubberyCreation() : AForm("Shrubbery Creation", 145, 137), target("target"){}
 
-ShrubberyCreation::ShrubberyCreation(std::string target) : AForm("Shrubbery Creation", 145, 137), target(target) {}
+ShrubberyCreation::ShrubberyCreation(const std::string& target) : AForm("Shrubbery Creation", 145, 137), target(target) {}
+
+ShrubberyCreation::~ShrubberyCreation() {}
+
+ShrubberyCreation::ShrubberyCreation(const ShrubberyCreation& other) : AForm(other), target(other.target) {}
+
+ShrubberyCreation& ShrubberyCreation::operator=(const ShrubberyCreation& other) {
+	if (this != &other) {
+		AForm::operator=(other);
+		target = other.target;
+	}
+	return (*this);
+}
 
 void ShrubberyCreation::execute(const Bureaucrat& executor) const {
 	checkExecution(executor);
