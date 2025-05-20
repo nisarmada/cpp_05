@@ -4,37 +4,27 @@
 #include "../include/ShrubberyCreation.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
-#include <chrono>
-#include <thread>
 
-// Function to print a separator line for better output readability
 void printSeparator() {
     std::cout << "\n----------------------------------------\n" << std::endl;
 }
 
 int main() {
     try {
-        // Creating bureaucrats with different grades
-        Bureaucrat boss("Big Boss", 1);           // Highest possible grade
-        Bureaucrat manager("Manager", 30);        // Mid-high grade
-        Bureaucrat employee("Employee", 60);      // Mid grade
-        Bureaucrat intern("Intern", 140);         // Low grade
-        
-        // Print all bureaucrats to verify creation
-        std::cout << boss << manager << employee << intern;
+        Bureaucrat boss("Big Boss", 1); 
+        Bureaucrat manager("Manager", 30);
+        Bureaucrat employee("Employee", 60);
+        Bureaucrat intern("Intern", 140);
         
         printSeparator();
         
         std::cout << "Shrubbery Creation Form." << std::endl;
-        // Create a ShrubberyCreation form
         ShrubberyCreation shrubForm("garden");
         std::cout << "Created: " << shrubForm;
         
-        // Test signing with different bureaucrats
         std::cout << "\nIntern signing (should work):" << std::endl;
         intern.signForm(shrubForm);
         
-        // Try executing with different grades
         std::cout << "\nIntern executing (should fail):" << std::endl;
         intern.executeForm(shrubForm);
         
@@ -59,7 +49,7 @@ int main() {
         std::cout << "\nManager executing (should work):" << std::endl;
         manager.executeForm(robotForm);
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             manager.executeForm(robotForm);
         }
         
@@ -104,7 +94,6 @@ int main() {
         RobotomyRequestForm original2("original2");
         PresidentialPardonForm original3("original3");
         
-        // Sign an original to test if sign status is copied
         Bureaucrat boss("Copy Test Boss", 1);
         boss.signForm(original1);
         
@@ -123,7 +112,6 @@ int main() {
         std::cout << "Original: " << original1;
         std::cout << "Assigned: " << assign1;
         
-        // Test if copy can be executed
         std::cout << "\nCan we execute the copy?" << std::endl;
         boss.executeForm(copy1);
         
